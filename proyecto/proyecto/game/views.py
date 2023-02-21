@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt #exsentar 
-#from json import loads,dumps
+from json import loads,dumps
 # Create your views here.
 def index(request):
     #return HttpResponse('<h1> Hola desde Django</h1>')
@@ -24,8 +24,12 @@ def multiplicacion(request):
 
 @csrf_exempt
 def division(request):
-    a = request.POST['a']
-    b = request.POST['b']
+    body_unicode = request.body.decode('utf-8')
+    body = loads(body_unicode)
+    a = body['a']
+    b = body['b']
+    #a = request.POST['a']
+    #b = request.POST['b']
     #c = int(a)/int(b)
-    return HttpResponse("La division de "+a+"/"+b+" = ")
-    #return HttpResponse("Division")+ str(c)
+    return HttpResponse("La division de "+a+"/"+b+" = "+ str(c))
+    #return HttpResponse("Division")
