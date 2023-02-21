@@ -9,3 +9,7 @@ def proceso(request):
     nombre = request.POST['nombre']
     nombre = nombre.upper()
     return HttpResponse('Hola '+ nombre)
+
+def bienvenida(request):
+    letrero = "Bienvenida"
+    return HttpResponse(letrero)
