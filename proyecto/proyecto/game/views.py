@@ -19,3 +19,9 @@ def multiplicacion(request):
     q = request.GET['q']
     r = int(p)*int(q)
     return HttpResponse("La multiplicacion de "+p+"x"+q+" = "+ str(r))
+
+def division(request):
+    a = request.GET['a']
+    b = request.GET['b']
+    c = int(a)/int(b)
+    return HttpResponse("La multiplicacion de "+a+"x"+b+" = "+ str(c))
