@@ -9,7 +9,6 @@ class Fraccion:
         self.den = den
     def toJSON(self):
         return dumps(self, default=lambda o:o.__dict__, sort_keys=False, indent=4)
-    
 # Create your views here.
 def index(request):
     #return HttpResponse('<h1> Hola desde Django</h1>')
@@ -52,10 +51,6 @@ def division(request):
     a = body['a']
     b = body['b']
     resultado = Fraccion(a,b)
-    #a = request.POST['a']
-    #b = request.POST['b']
-    #c = int(a)/int(b)
-    json_resultado = Fraccion.toJSON()
+    json_resultado = resultado.toJSON()
     return HttpResponse(json_resultado, \
-        content_type= "text/json-comment-filtered")
-    #return HttpResponse("Division") + str(c)
+        content_type = "text/json-comment-filtered")
