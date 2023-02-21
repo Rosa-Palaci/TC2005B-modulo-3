@@ -17,4 +17,5 @@ def bienvenida(request):
 def multiplicacion(request):
     p = request.GET['p']
     q = request.GET['q']
-    return HttpResponse("Multiplicacion "+p+"x"+q)
+    r = int(p)*int(q)
+    return HttpResponse("La multiplicacion de "+p+"x"+q+" = "+ str(r))
