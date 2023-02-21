@@ -15,4 +15,6 @@ def bienvenida(request):
     return HttpResponse(letrero)
 
 def multiplicacion(request):
-    return HttpResponse("Multiplicacion")
+    p = request.GET['p']
+    q = request.GET['q']
+    return HttpResponse("Multiplicacion "+p+"x"+q)
