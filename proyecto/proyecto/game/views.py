@@ -13,3 +13,6 @@ def proceso(request):
 def bienvenida(request):
     letrero = "Bienvenida"
     return HttpResponse(letrero)
+
+def multiplicacion(request):
+    return HttpResponse("Multiplicacion")
