@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import proyecto
 from django.views.decorators.csrf import csrf_exempt #exsentar 
 from json import loads,dumps
 
@@ -14,9 +15,14 @@ def index(request):
     #return HttpResponse('<h1> Hola desde Django</h1>')
     return render(request, 'index.html')
 
+def datos(request):
+    jugadores = proyecto.objects.all()
+    return render(request, 'datos.html', {'lista_jugadores':jugadores})
+
 def proceso(request):
     nombre = request.POST['nombre']
     nombre = nombre.upper()
+    return render(request, 'proceso.html',{'name':nombre})
     return HttpResponse('Hola '+ nombre)
 
 @csrf_exempt
